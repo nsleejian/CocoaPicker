@@ -45,7 +45,7 @@
     button.layer.shadowOffset = CGSizeMake(4.0f, 4.0f);
     button.layer.shadowOpacity = 0.5f;
     
-    button.center = CGPointMake(self.view.bounds.size.width/2.0, 440);
+    button.center = CGPointMake(self.view.bounds.size.width/2.0, CGRectGetHeight(self.view.bounds) - 100);
     [button setTitleColor:[UIColor redColor] forState:normal];
     [self.view addSubview:button];
     [button addTarget:self action:@selector(present:) forControlEvents:UIControlEventTouchUpInside];
@@ -72,14 +72,14 @@
     [UIView animateWithDuration:0.25 animations:^{
         button.layer.cornerRadius = 45;
 
-    } completion:^(BOOL finished) {
+    }completion:^(BOOL finished) {
         self.view.window.rootViewController.modalPresentationStyle = UIModalPresentationCurrentContext;//半透明
         CocoaPickerViewController *transparentView = [[CocoaPickerViewController alloc] init];
         transparentView.delegate = self;
         transparentView.modalPresentationStyle = UIModalPresentationOverFullScreen;
         transparentView.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         transparentView.view.frame=self.view.frame;
-        transparentView.view.backgroundColor=[[UIColor whiteColor] colorWithAlphaComponent:.3];
+        transparentView.view.backgroundColor=[[UIColor blackColor] colorWithAlphaComponent:.5];
         transparentView.view.superview.backgroundColor = [UIColor clearColor];
         [self presentViewController:transparentView animated:YES completion:nil];
     }];

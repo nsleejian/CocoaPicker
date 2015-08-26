@@ -91,12 +91,20 @@
     _hederView.sendImageBlock = ^(NSArray *imageArray){
 //        改变row 0 的标题和作用
         
-        _isChosePhotoFromHeaderScrollView = YES;
-        label.text = [NSString stringWithFormat:@"发送 %lu 张",(unsigned long)imageArray.count];
-        label.textColor = [UIColor colorWithRed:255/255.0 green:28/255.0 blue:109/255.0 alpha:1];
-        label.font = [UIFont systemFontOfSize:20];
-        
-        _imageArray = imageArray;
+        if (imageArray.count == 0) {
+            _isChosePhotoFromHeaderScrollView = NO;
+            label.text = @"拍照";
+            label.textColor = [UIColor blackColor];
+            label.font = [UIFont systemFontOfSize:17];
+        }
+        else{
+            _isChosePhotoFromHeaderScrollView = YES;
+            label.text = [NSString stringWithFormat:@"发送 %lu 张",(unsigned long)imageArray.count];
+            label.textColor = [UIColor colorWithRed:255/255.0 green:28/255.0 blue:109/255.0 alpha:1];
+            label.font = [UIFont systemFontOfSize:20];
+            _imageArray = imageArray;
+        }
+       
     };
     return _hederView;
 }
