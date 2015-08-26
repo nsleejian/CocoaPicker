@@ -18,11 +18,12 @@ self.view.window.rootViewController.modalPresentationStyle = UIModalPresentation
       
 
 
-###截图
+###截图0
 
 
 ![Image](image/CocoaPicker1.jpg) 
 
+###截图1
 
 ![Image](image/CocoaPicker0.jpg) 
 
