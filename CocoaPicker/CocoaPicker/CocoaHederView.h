@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-typedef void(^sendImage)(UIImage *iamge);
+typedef void(^sendImage)(NSArray *imageArray);
 @interface CocoaHederView : UIView
 @property(nonatomic,strong)UIScrollView *scrollView;
+@property(nonatomic,strong)NSMutableArray *sendBackArray;
 @property(nonatomic,strong)NSMutableArray *newimageArray;
 @property(nonatomic,strong)sendImage  sendImageBlock;
 @end

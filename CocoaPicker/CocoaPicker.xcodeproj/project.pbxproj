@@ -18,6 +18,7 @@
 		FB3E65D01B8C1F77004449BA /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FB3E65CF1B8C1F77004449BA /* 2.jpg */; };
 		FB3E65D31B8C2121004449BA /* CocoaPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3E65D21B8C2121004449BA /* CocoaPickerViewController.m */; };
 		FB3E65D61B8C2E4D004449BA /* CocoaHederView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3E65D51B8C2E4D004449BA /* CocoaHederView.m */; };
+		FB92B2A41B8D8F0200920AF8 /* CocoaGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = FB92B2A31B8D8F0200920AF8 /* CocoaGroup.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,8 @@
 		FB3E65D21B8C2121004449BA /* CocoaPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocoaPickerViewController.m; sourceTree = "<group>"; };
 		FB3E65D41B8C2E4D004449BA /* CocoaHederView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaHederView.h; sourceTree = "<group>"; };
 		FB3E65D51B8C2E4D004449BA /* CocoaHederView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocoaHederView.m; sourceTree = "<group>"; };
+		FB92B2A21B8D8F0200920AF8 /* CocoaGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaGroup.h; sourceTree = "<group>"; };
+		FB92B2A31B8D8F0200920AF8 /* CocoaGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocoaGroup.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +142,8 @@
 				FB3E65D21B8C2121004449BA /* CocoaPickerViewController.m */,
 				FB3E65D41B8C2E4D004449BA /* CocoaHederView.h */,
 				FB3E65D51B8C2E4D004449BA /* CocoaHederView.m */,
+				FB92B2A21B8D8F0200920AF8 /* CocoaGroup.h */,
+				FB92B2A31B8D8F0200920AF8 /* CocoaGroup.m */,
 			);
 			name = CocoaPicker;
 			sourceTree = "<group>";
@@ -250,6 +255,7 @@
 				FB3E65D31B8C2121004449BA /* CocoaPickerViewController.m in Sources */,
 				FB3E65A71B8C1B9C004449BA /* main.m in Sources */,
 				FB3E65D61B8C2E4D004449BA /* CocoaHederView.m in Sources */,
+				FB92B2A41B8D8F0200920AF8 /* CocoaGroup.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +450,7 @@
 				FB3E65C61B8C1B9D004449BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FB3E65C71B8C1B9D004449BA /* Build configuration list for PBXNativeTarget "CocoaPickerTests" */ = {
 			isa = XCConfigurationList;
@@ -452,6 +459,7 @@
 				FB3E65C91B8C1B9D004449BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

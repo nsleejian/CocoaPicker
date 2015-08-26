@@ -10,8 +10,11 @@
 #import "CocoaHederView.h"
 @interface CocoaPickerViewController ()<UITableViewDataSource,UITableViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
-@property(nonatomic,strong,readonly)NSArray *nameArray;
-
+@property(nonatomic,strong,readonly) NSArray *nameArray;
+@property(nonatomic,strong,readonly) NSArray *imageArray;
+@property(nonatomic,strong)           CocoaHederView *hederView;
+@property(nonatomic,assign)          BOOL isChosePhotoFromHeaderScrollView;
+@property(nonatomic,strong)          UILabel *label;
 @end
 
 @implementation CocoaPickerViewController
@@ -43,9 +46,12 @@
     
     
     
+    _hederView = [[CocoaHederView alloc] init];
+    
+    
     _nameArray = @[@"拍照",@"相册",@"取消"];
     
-    
+    _isChosePhotoFromHeaderScrollView = NO;
     
 }
 
@@ -61,7 +67,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] init];
         cell.backgroundColor = [UIColor whiteColor];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
     UIView *line = [UIView new];
@@ -69,34 +75,54 @@
     line.frame = CGRectMake(0, 0, tableView.bounds.size.width, 1);
     [cell addSubview:line];
     
-    
     cell.textLabel.text = _nameArray[indexPath.row];
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
     
+    if (indexPath.row == 0) {
+        _label = cell.textLabel;
+    }
     return cell;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    CocoaHederView *hederView = [[CocoaHederView alloc] init];
-    __weak typeof (&*self)weakSelf = self;
-    hederView.sendImageBlock = ^(UIImage *image){
-        if ([weakSelf.delegate respondsToSelector:@selector(CocoaPickerViewSendBackWithImage:andString:)]) {
-            [self.delegate CocoaPickerViewSendBackWithImage:image andString:@"选择的照片"];
-            [self dismiss];
-        }
+//    __weak typeof (&*self)weakSelf = self;
+    
+    __block UILabel *label =  _label;
+    _hederView.sendImageBlock = ^(NSArray *imageArray){
+//        改变row 0 的标题和作用
+        
+        _isChosePhotoFromHeaderScrollView = YES;
+        label.text = [NSString stringWithFormat:@"发送 %lu 张",(unsigned long)imageArray.count];
+        label.textColor = [UIColor colorWithRed:255/255.0 green:28/255.0 blue:109/255.0 alpha:1];
+        label.font = [UIFont systemFontOfSize:20];
+        
+        _imageArray = imageArray;
     };
-    return hederView;
+    return _hederView;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    if (indexPath.row == 2) {
-        [self dismiss];
 
+    
+    if (indexPath.row == 0) {
+        
+        if (_isChosePhotoFromHeaderScrollView) {
+            if ([self.delegate respondsToSelector:@selector(CocoaPickerViewSendBackWithImage:andString:)]) {
+                [self.delegate CocoaPickerViewSendBackWithImage:_imageArray andString:@"选择的照片"];
+            }
+            [self dismiss];
+            
+        }
+        else {
+            [self tackPhotoOrChoseFromLib:indexPath.row];
+        }
     }
-    else{
+    else if (indexPath.row == 1){
         [self tackPhotoOrChoseFromLib:indexPath.row];
+    }
+    else if (indexPath.row == 2){
+        [self dismiss];
     }
 }
 
@@ -123,7 +149,16 @@
    
 }
 
+#pragma mark -启动相机或者相册
 - (void)tackPhotoOrChoseFromLib : (NSInteger )indexPathRow{
+    
+    
+    if(![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        [self alertWithTitle:@"提示" andMessage:@"相机启动失败" andButtonTitle:@"确定" andButtonTitle:@"取消"];
+        return;
+    }
+    
+    
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     if (indexPathRow == 0) {
@@ -135,6 +170,7 @@
     [self presentViewController:picker animated:YES completion:^{
         
     }];
+    
 }
 
 
@@ -145,13 +181,22 @@
 //    传到 首页
     UIImage* image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
     if ([self.delegate respondsToSelector:@selector(CocoaPickerViewSendBackWithImage:andString:)]) {
-        [self.delegate CocoaPickerViewSendBackWithImage:image andString:@"选择的照片"];
+        [self.delegate CocoaPickerViewSendBackWithImage:[NSArray arrayWithObject:image] andString:@"选择的照片"];
     }
     __weak typeof (&*self) weakSelf = self;
     [picker dismissViewControllerAnimated:YES completion:^{
         [weakSelf dismiss];
     }];
     
+}
+
+
+
+
+-(UIAlertView *)alertWithTitle:(NSString *)title andMessage:(NSString *)message andButtonTitle:(NSString *)titleOne andButtonTitle:(NSString *)titleTwo{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:titleOne otherButtonTitles:titleTwo, nil];
+    [alert show];
+    return alert;
 }
 
 

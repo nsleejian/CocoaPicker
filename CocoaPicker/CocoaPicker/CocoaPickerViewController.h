@@ -12,7 +12,7 @@
 @protocol CocoaPickerViewControllerDelegate <NSObject>
 
 //拍照 相册 返回图片  一张
--(void)CocoaPickerViewSendBackWithImage:(UIImage*)image andString :(NSString *)str;
+-(void)CocoaPickerViewSendBackWithImage:(NSArray*)imageArray andString :(NSString *)str;
 
 @end
 
