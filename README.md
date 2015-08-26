@@ -12,7 +12,7 @@ self.view.window.rootViewController.modalPresentationStyle = UIModalPresentation
         transparentView.view.frame=self.view.frame;
         transparentView.view.backgroundColor=[[UIColor blackColor] colorWithAlphaComponent:.5];
         transparentView.view.superview.backgroundColor = [UIColor clearColor];
-        [self presentViewController:transparentView animated:YES completion:nil];Log(@"Error: %@", error);
+        [self presentViewController:transparentView animated:YES completion:nil];
 }];
 ```
       
