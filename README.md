@@ -15,14 +15,14 @@
       
 
 
-###截图0
+###CocoaPicker
 
 
-![Image](image/CocoaPicker1.jpg) 
+![Image](http://ww3.sinaimg.cn/large/640e3faagw1evgy8z326qg209m0gtqv9.gif) 
 
-###截图1
+###QQ
+![Image](http://ww4.sinaimg.cn/large/640e3faagw1evgya4vmknj20ku112acv.jpg =350x630) 
 
-![Image](image/CocoaPicker0.jpg) 
 
 
 
