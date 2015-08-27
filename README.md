@@ -1,7 +1,7 @@
 ##CocoaPicker --仿QQ图片选择器
 
 
-###如何使用
+###使用方法
 
  ```objective-c
   self.view.window.rootViewController.modalPresentationStyle = UIModalPresentationCurrentContext;//半透明
