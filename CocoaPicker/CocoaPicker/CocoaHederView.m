@@ -50,7 +50,7 @@
             }
             NSString *name = [NSString stringWithFormat:@"%@",[group valueForProperty:ALAssetsGroupPropertyName]];
             NSLog(@"name : %@",name);
-#warning 可以在这里调整图片来源，来自哪个相册根据 name 修改
+//#warning 可以在这里调整图片来源，来自哪个相册根据 name 修改
             if ([name isEqualToString:@"我的照片流"]) {
                 [self getImageWith:group];
             }
