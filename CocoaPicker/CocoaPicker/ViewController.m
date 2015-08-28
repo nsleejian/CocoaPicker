@@ -27,12 +27,8 @@
         [alert show];
     }
     
-   
-    
-    
     UIImageView *imageView =[[ UIImageView  alloc] initWithImage:[UIImage imageNamed:@"2.jpg"]];
     imageView.frame = self.view.bounds;
-//    [self.view addSubview:imageView];
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeContactAdd];
     button.bounds = CGRectMake(0, 0, 90, 90);
@@ -78,7 +74,7 @@
         transparentView.delegate = self;
         transparentView.modalPresentationStyle = UIModalPresentationOverFullScreen;
         transparentView.view.frame=self.view.frame;
-        transparentView.view.superview.backgroundColor = [UIColor clearColor];
+//        transparentView.view.superview.backgroundColor = [UIColor clearColor];
         [self presentViewController:transparentView animated:YES completion:nil];
     }];
     
@@ -101,9 +97,6 @@
         imageView.layer.borderColor = [UIColor whiteColor].CGColor;
         _scrollView.contentSize = CGSizeMake(_scrollView.contentSize.width + image_W, _scrollView.bounds.size.height);
         [_scrollView addSubview:imageView];
-        
-        
-
     }
     
 //    调整  contentOffset
@@ -111,9 +104,7 @@
             [UIView  animateWithDuration:0.25 animations:^{
             _scrollView.contentOffset = CGPointMake(_scrollView.contentSize.width - self.view.bounds.size.width, 0);
             }];
-
         }
-
 }
 
 
