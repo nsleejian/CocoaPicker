@@ -4,7 +4,7 @@
 ###使用方法
 ```
 platform :ios, '7.0'
-pod "CocoaPicker", "~> 0.1.0"
+pod "CocoaPicker", "~> 0.1.1"
 
 ```
 
