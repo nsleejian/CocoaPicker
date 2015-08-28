@@ -2,6 +2,12 @@
 
 
 ###使用方法
+```
+platform :ios, '7.0'
+pod "CocoaPicker", "~> 0.1.0"
+
+```
+
 
  ```objective-c
   self.view.window.rootViewController.modalPresentationStyle = UIModalPresentationCurrentContext;//半透明
