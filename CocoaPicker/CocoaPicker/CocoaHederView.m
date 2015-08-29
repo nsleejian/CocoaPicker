@@ -50,7 +50,7 @@
             }
             NSString *name = [NSString stringWithFormat:@"%@",[group valueForProperty:ALAssetsGroupPropertyName]];
             NSLog(@"name : %@",name);
-            if ([name isEqualToString:@"我的照片流"]) {
+            if ([name isEqualToString:@"相机胶卷"]) {
                 [self getImageWith:group];
             }
         } failureBlock:^(NSError *error) {
