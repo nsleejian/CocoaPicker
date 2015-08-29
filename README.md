@@ -1,4 +1,4 @@
-# CocoaPicke##CocoaPicker --仿QQ图片选择器
+##CocoaPicker --仿QQ图片选择器
 
 
 ###使用方法
