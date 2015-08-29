@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
    s.name         = "CocoaPicker"
-   s.version      = "0.9"
+   s.version      = "1.0"
    s.summary      = "仿 QQ 图片选择器"
    s.homepage     = "https://github.com/thebookofleaves/CocoaPicker"
    s.license      = "MIT"
