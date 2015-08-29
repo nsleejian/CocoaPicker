@@ -161,18 +161,24 @@
 - (void)tackPhotoOrChoseFromLib : (NSInteger )indexPathRow{
     
     
-    if(![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        [self alertWithTitle:@"提示" andMessage:@"相机启动失败" andButtonTitle:@"确定" andButtonTitle:@"取消"];
-        return;
-    }
     
     
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     if (indexPathRow == 0) {
+        if(![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            [self alertWithTitle:@"提示" andMessage:@"相机启动失败" andButtonTitle:@"确定" andButtonTitle:@"取消"];
+            return;
+        }
+        
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
     }
     else if (indexPathRow == 1) {
+        if(![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+            [self alertWithTitle:@"提示" andMessage:@"访问相册失败" andButtonTitle:@"确定" andButtonTitle:@"取消"];
+            return;
+        }
+        
         picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
     [self presentViewController:picker animated:YES completion:^{
