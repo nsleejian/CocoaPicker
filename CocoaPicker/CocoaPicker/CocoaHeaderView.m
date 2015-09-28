@@ -1,19 +1,16 @@
 //
-//  CocoaHederView.m
+//  CocoaHeaderView.m
 //  CocoaPicker
 //
 //  Created by Cocoa Lee on 15/8/25.
 //  Copyright (c) 2015年 Cocoa Lee. All rights reserved.
 //
 
-#import "CocoaHederView.h"
+#import "CocoaHeaderView.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "CocoaGroup.h"
 
-
-@implementation CocoaHederView
-
-
+@implementation CocoaHeaderView
 - (id)init{
     self = [super init];
     if (self) {
@@ -22,14 +19,12 @@
     return self;
 }
 
-
 - (void)initHeaderView{
     self.frame = CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 190);
 
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 190)];
     [self addSubview:scrollView];
     _scrollView = scrollView;
-  
 }
 
 - (void)getPhotoLibName {

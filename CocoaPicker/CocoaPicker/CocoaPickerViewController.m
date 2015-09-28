@@ -7,14 +7,15 @@
 //
 
 #import "CocoaPickerViewController.h"
-#import "CocoaHederView.h"
+#import "CocoaHeaderView.h"
 @interface CocoaPickerViewController ()<UITableViewDataSource,UITableViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
-@property(nonatomic,strong,readonly) NSArray *nameArray;
-@property(nonatomic,strong,readonly) NSArray *imageArray;
-@property(nonatomic,strong)           CocoaHederView *hederView;
-@property(nonatomic,assign)          BOOL isChosePhotoFromHeaderScrollView;
-@property(nonatomic,strong)          UILabel *label;
+@property(nonatomic,strong,readonly) NSArray          *nameArray;
+@property(nonatomic,strong,readonly) NSArray          *imageArray;
+@property(nonatomic,strong)          CocoaHeaderView  *headerView;
+@property(nonatomic,assign)          BOOL             isChosePhotoFromHeaderScrollView;
+@property(nonatomic,strong)          UILabel          *label;
+
 @end
 
 @implementation CocoaPickerViewController
@@ -46,7 +47,7 @@
     
     
     
-    _hederView = [[CocoaHederView alloc] init];
+    _headerView = [[CocoaHeaderView alloc] init];
     
     
     _nameArray = @[@"拍照",@"相册",@"取消"];
@@ -88,7 +89,7 @@
 //    __weak typeof (&*self)weakSelf = self;
     
     __block UILabel *label =  _label;
-    _hederView.sendImageBlock = ^(NSArray *imageArray){
+    _headerView.sendImageBlock = ^(NSArray *imageArray){
 //        改变row 0 的标题和作用
         
         if (imageArray.count == 0) {
@@ -106,7 +107,7 @@
         }
        
     };
-    return _hederView;
+    return _headerView;
 }
 
 
