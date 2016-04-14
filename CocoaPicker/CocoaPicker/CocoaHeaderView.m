@@ -45,7 +45,7 @@
             }
             NSString *name = [NSString stringWithFormat:@"%@",[group valueForProperty:ALAssetsGroupPropertyName]];
             NSLog(@"name : %@",name);
-            if ([name isEqualToString:@"相机胶卷"]) {
+            if ([name isEqualToString:@"相机胶卷"]|| [name isEqualToString:@"camera roll"]) {
                 [self getImageWith:group];
             }
         } failureBlock:^(NSError *error) {
