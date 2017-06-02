@@ -25,8 +25,9 @@ pod "CocoaPicker"
 
 
  <div align='center'>
-        <img src="http://t.cn/RyPHLBc" width = "360" height = "640" alt=“图片名称” align=center />  
+        <img src="http://ww3.sinaimg.cn/large/640e3faagw1evgy8z326qg209m0gtqv9.gif" width = "360" height = "640" alt=“图片名称” align=center />  
  </div>
+http://ww3.sinaimg.cn/large/640e3faagw1evgy8z326qg209m0gtqv9.gif
 
 ###QQ
 
